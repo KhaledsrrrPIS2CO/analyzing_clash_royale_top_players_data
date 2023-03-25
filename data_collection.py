@@ -200,7 +200,7 @@ def insert_player_stats_to_mysql(player_stats_list: list) -> None:
             # execute the SQL statement with the data for the current player
             data = (player_data_sql['player_tag'], player_data_sql['name'], player_data_sql['battle_count'],
                     player_data_sql['net_win_rate'], player_data_sql['net_loss_rate'],
-                    player_data_sql['win_rate_with_discrepancy'],
+                    player_data_sql['win_rate_with_discrepancywh'],
                     player_data_sql['loss_rate_with_discrepancy'], player_data_sql['discrepancy_games'],
                     player_data_sql['discrepancy_pct'])
             cursor.execute(add_player, data)
