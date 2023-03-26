@@ -126,3 +126,25 @@ def plot_net_win_rate_distribution():
 
 
 plot_net_win_rate_distribution()
+
+
+def plot_scatterplot_net_win_rate_vs_battle_count():
+    df = connect_to_database()
+
+    # Generate scatter plot
+    plt.figure(figsize=(8, 6), dpi=900)
+    plt.scatter(df['battle_count'], df['net_win_rate'], s=0.2)
+    plt.xlabel('Battle Count', fontsize=12)
+    plt.ylabel('Net Win Rate', fontsize=12)
+    plt.title('Scatter Plot: Net Win Rate vs. Battle Count', fontsize=14)
+    plt.tick_params(axis='both', which='major', labelsize=10)
+    plt.tick_params(axis='both', which='minor', labelsize=8)
+    plt.show()
+
+
+plot_scatterplot_net_win_rate_vs_battle_count()
+
+
+
+
+
