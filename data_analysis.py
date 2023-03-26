@@ -2,7 +2,7 @@ import mysql.connector
 import pandas as pd
 import numpy as np
 from scipy import stats
-
+import matplotlib.pyplot as plt
 
 def connect_to_database():
     """
@@ -37,13 +37,15 @@ def get_measures_central_tendency():
     mean = round(np.mean(df['net_win_rate']), 2)
     median = np.median(df['net_win_rate'])
     mode = stats.mode(df['net_win_rate'])[0][0]
+    max_val = np.max(df['net_win_rate'])
+    min_val = np.min(df['net_win_rate'])
 
-    return mean, median, mode
+    return mean, median, mode, max_val, min_val
 
 
 # Call the get_measures_central_tendency function and print the results
-mean, median, mode = get_measures_central_tendency()
-print(f"\nMean: {mean} \nMedian: {median} \nMode: {mode}")
+mean, median, mode, max_val, min_val = get_measures_central_tendency()
+print(f"\nMean: {mean} \nMedian: {median} \nMode: {mode}\nMax: {max_val}\nMin: {min_val}")
 
 
 def get_measures_variability():
@@ -98,3 +100,27 @@ def get_68_95_99_rule():
 # Call the  get_68_95_99_rule function and print the results
 six_nine_nine_rule = get_68_95_99_rule()
 print(six_nine_nine_rule)
+
+
+def plot_normal_from_database():
+    # Fetch data into a DataFrame
+    df = connect_to_database()
+
+    # Calculate the mean and standard deviation of the net_win_rate
+    mu, sigma = np.mean(df['net_win_rate']), np.std(df['net_win_rate'])
+
+    # Create an array of values that represent the range of net_win_rate values
+    x = np.linspace(mu - 3*sigma, mu + 3*sigma, 100)
+
+    # Calculate the corresponding probability density function (PDF) for each value in the range
+    pdf = 1/(sigma*np.sqrt(2*np.pi))*np.exp(-(x-mu)**2/(2*sigma**2))
+
+    # Plot the PDF using matplotlib
+    plt.plot(x, pdf)
+    plt.title("Normal Distribution of Net Win Rate")
+    plt.xlabel("Net Win Rate")
+    plt.ylabel("Probability Density")
+    plt.show()
+
+
+plot_normal_from_database()
