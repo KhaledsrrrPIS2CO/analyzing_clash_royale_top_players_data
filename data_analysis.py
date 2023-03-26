@@ -41,7 +41,7 @@ def get_measures_central_tendency():
     return mean, median, mode
 
 
-# Call the function and print the results
+# Call the get_measures_central_tendency function and print the results
 mean, median, mode = get_measures_central_tendency()
 print(f"\nMean: {mean} \nMedian: {median} \nMode: {mode}")
 
@@ -64,6 +64,37 @@ def get_measures_variability():
     return {range_val, variance_val, std_dev}
 
 
-# Call the function and print the results
+# Call the get_measures_variability function and print the results
 range_val, variance_val, std_dev = get_measures_variability()
-print(f"\nRange: {range_val} \nVariance: {variance_val} \nStandard Deviation: {std_dev}")
+print(f"\nRange: {range_val} \nVariance: {variance_val} \nStandard Deviation: {std_dev}\n")
+
+
+def get_68_95_99_rule():
+    """
+    This function calculates the 68-95-99 rule for the 'net_win_rate' column using NumPy and returns the result as a
+    formatted string.
+    """
+
+    # Fetch data into a DataFrame
+    df = connect_to_database()
+
+    # Calculate mean and standard deviation
+    mean = np.mean(df['net_win_rate'])
+    std_dev = np.std(df['net_win_rate'])
+
+    # Calculate the 68-95-99 rule
+    rule_68 = (mean - std_dev, mean + std_dev)
+    rule_95 = (mean - 2 * std_dev, mean + 2 * std_dev)
+    rule_99 = (mean - 3 * std_dev, mean + 3 * std_dev)
+
+    # Format the result as a string
+    result = f"The 68-95-99 rule for the net_win_rate is:\n68% of the data lies between {rule_68[0]:.2f} and" \
+             f" {rule_68[1]:.2f}\n95% of the data lies between {rule_95[0]:.2f} and" \
+             f" {rule_95[1]:.2f}\n99% of the data lies between {rule_99[0]:.2f} and {rule_99[1]:.2f}"
+
+    return result
+
+
+# Call the  get_68_95_99_rule function and print the results
+six_nine_nine_rule = get_68_95_99_rule()
+print(six_nine_nine_rule)
