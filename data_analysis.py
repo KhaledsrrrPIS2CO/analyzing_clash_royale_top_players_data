@@ -128,11 +128,11 @@ def plot_net_win_rate_distribution():
 plot_net_win_rate_distribution()
 
 
-def plot_scatterplot_net_win_rate_vs_battle_count():
+def plot_scatter_plot_net_win_rate_vs_battle_count():
     df = connect_to_database()
 
     # Generate scatter plot
-    plt.figure(figsize=(8, 6), dpi=900)
+    plt.figure(figsize=(8, 6), dpi=500)
     plt.scatter(df['battle_count'], df['net_win_rate'], s=0.2)
     plt.xlabel('Battle Count', fontsize=12)
     plt.ylabel('Net Win Rate', fontsize=12)
@@ -142,7 +142,7 @@ def plot_scatterplot_net_win_rate_vs_battle_count():
     plt.show()
 
 
-plot_scatterplot_net_win_rate_vs_battle_count()
+plot_scatter_plot_net_win_rate_vs_battle_count()
 
 
 
