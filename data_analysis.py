@@ -102,7 +102,7 @@ six_nine_nine_rule = get_68_95_99_rule()
 print(six_nine_nine_rule)
 
 
-def plot_normal_from_database():
+def plot_net_win_rate_distribution():
     # Fetch data into a DataFrame
     df = connect_to_database()
 
@@ -123,4 +123,4 @@ def plot_normal_from_database():
     plt.show()
 
 
-plot_normal_from_database()
+plot_net_win_rate_distribution()
