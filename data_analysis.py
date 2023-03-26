@@ -45,6 +45,7 @@ def get_measures_central_tendency():
 
 # Call the get_measures_central_tendency function and print the results
 mean, median, mode, max_val, min_val = get_measures_central_tendency()
+print("Measures of central tendency:")
 print(f"\nMean: {mean} \nMedian: {median} \nMode: {mode}\nMax: {max_val}\nMin: {min_val}")
 
 
@@ -68,7 +69,8 @@ def get_measures_variability():
 
 # Call the get_measures_variability function and print the results
 range_val, variance_val, std_dev = get_measures_variability()
-print(f"\nRange: {range_val} \nVariance: {variance_val} \nStandard Deviation: {std_dev}\n")
+print("\nMeasures of variability:")
+print(f"Range: {range_val} \nVariance: {variance_val} \nStandard Deviation: {std_dev}\n")
 
 
 def get_68_95_99_rule():
