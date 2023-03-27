@@ -157,7 +157,7 @@ def plot_net_win_rate_histogram():
     plt.show()
 
 
-#plot_net_win_rate_histogram()
+plot_net_win_rate_histogram()
 
 
 
