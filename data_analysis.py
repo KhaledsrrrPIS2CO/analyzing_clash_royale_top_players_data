@@ -142,7 +142,7 @@ def plot_scatter_plot_battle_count_vs_net_win_rate():
     plt.show()
 
 
-plot_scatter_plot_battle_count_vs_net_win_rate()
+#plot_scatter_plot_battle_count_vs_net_win_rate()
 
 
 def plot_net_win_rate_histogram():
