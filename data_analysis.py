@@ -104,7 +104,7 @@ six_nine_nine_rule = get_68_95_99_rule()
 print(six_nine_nine_rule)
 
 
-def plot_net_win_rate_distribution():
+def plot_probability_density_function():
     # Fetch data into a DataFrame
     df = connect_to_database()
 
@@ -119,30 +119,51 @@ def plot_net_win_rate_distribution():
 
     # Plot the PDF using matplotlib
     plt.plot(x, pdf)
-    plt.title("Normal Distribution of Net Win Rate")
+    plt.title("PDF of Net Win Rate")
     plt.xlabel("Net Win Rate")
     plt.ylabel("Probability Density")
     plt.show()
 
 
-plot_net_win_rate_distribution()
+plot_probability_density_function()
 
 
-def plot_scatter_plot_net_win_rate_vs_battle_count():
+def plot_scatter_plot_battle_count_vs_net_win_rate():
     df = connect_to_database()
 
     # Generate scatter plot
-    plt.figure(figsize=(8, 6), dpi=500)
-    plt.scatter(df['battle_count'], df['net_win_rate'], s=0.2)
-    plt.xlabel('Battle Count', fontsize=12)
-    plt.ylabel('Net Win Rate', fontsize=12)
-    plt.title('Scatter Plot: Net Win Rate vs. Battle Count', fontsize=14)
+    plt.figure(figsize=(8, 6), dpi=100)
+    plt.scatter(df['net_win_rate'], df['battle_count'], s=0.2)
+    plt.xlabel('Net Win Rate', fontsize=12)
+    plt.ylabel('Battle Count', fontsize=12)
+    plt.title('Scatter Plot: Battle Count vs. Net Win Rate', fontsize=14)
     plt.tick_params(axis='both', which='major', labelsize=10)
     plt.tick_params(axis='both', which='minor', labelsize=8)
     plt.show()
 
 
-plot_scatter_plot_net_win_rate_vs_battle_count()
+plot_scatter_plot_battle_count_vs_net_win_rate()
+
+
+def plot_net_win_rate_histogram():
+    # Fetch data into a DataFrame
+    df = connect_to_database()
+
+    # Create a histogram of the net_win_rate column using matplotlib
+    plt.hist(df['net_win_rate'], bins=2500)
+    plt.title('Histogram of Net Win Rate')
+    plt.xlabel('Net Win Rate')
+    plt.ylabel('Count')
+    plt.show()
+
+
+#plot_net_win_rate_histogram()
+
+
+
+
+
+
 
 
 
