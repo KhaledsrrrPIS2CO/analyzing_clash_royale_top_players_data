@@ -132,7 +132,7 @@ def plot_scatter_plot_battle_count_vs_net_win_rate():
     df = connect_to_database()
 
     # Generate scatter plot
-    plt.figure(figsize=(8, 6), dpi=100)
+    plt.figure(figsize=(8, 6), dpi=300)
     plt.scatter(df['net_win_rate'], df['battle_count'], s=0.2)
     plt.xlabel('Net Win Rate', fontsize=12)
     plt.ylabel('Battle Count', fontsize=12)
@@ -142,7 +142,7 @@ def plot_scatter_plot_battle_count_vs_net_win_rate():
     plt.show()
 
 
-#plot_scatter_plot_battle_count_vs_net_win_rate()
+plot_scatter_plot_battle_count_vs_net_win_rate()
 
 
 def plot_net_win_rate_histogram():
