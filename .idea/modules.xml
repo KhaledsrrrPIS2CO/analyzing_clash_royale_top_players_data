@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/clashroyaldatapipeline.iml" filepath="$PROJECT_DIR$/.idea/clashroyaldatapipeline.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/analyzing_clash_royale_top_players_data.iml" filepath="$PROJECT_DIR$/.idea/analyzing_clash_royale_top_players_data.iml" />
     </modules>
   </component>
 </project>
